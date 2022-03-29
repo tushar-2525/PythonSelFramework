@@ -20,6 +20,9 @@ def setup(request):
         driver = webdriver.Firefox()
     elif browser_name == "IE":
         print("IE driver")
+    else:
+        driver = webdriver.Chrome()
+
     driver.get("https://rahulshettyacademy.com/angularpractice/")
     driver.maximize_window()
 
@@ -28,6 +31,7 @@ def setup(request):
     driver.close()
 
 
+# This hook is used to take automatically screenshot and place in HTML report
 @pytest.mark.hookwrapper
 def pytest_runtest_makereport(item):
     """
